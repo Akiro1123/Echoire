@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Aesthetic Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="icon">♪</div>
+            <h1>Music Player</h1>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search (UI only)">
+            <div class="profile"></div>
+        </div>
+    </header>
+
+    <div class="main-layout">
+
+        <!-- Sidebar -->
+        <aside>
+            <nav>
+                <a href="#"><span>🏠</span><span>Home</span></a>
+                <a href="#"><span>🔍</span><span>Search</span></a>
+                <a href="#"><span>📚</span><span>Your Library</span></a>
+            </nav>
+
+            <div class="playlists">
+                <h3>Playlists</h3>
+                <ul>
+                    <li><a href="#">Liked Songs</a></li>
+                    <li><a href="#">Recently Played</a></li>
+                    <li><a href="#">My Playlist</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <h2>Recently Played</h2>
+
+            <!-- SONGS LOADED HERE BY JS -->
+            <div class="song-grid" id="songGrid"></div>
+        </main>
+
+    </div>
+
+    <!-- Bottom Player Bar -->
+    <footer>
+
+        <div class="now-playing">
+            <img id="nowPlayingImg" src="https://via.placeholder.com/50x50/333/fff?text=Now" alt="Current Song">
+            <div>
+                <h4 id="nowPlayingTitle">Not Playing</h4>
+                <p id="nowPlayingArtist">---</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="previous()">⏮</button>
+            <button onclick="play()">▶</button>
+            <button onclick="pause()">⏸</button>
+            <button onclick="next()">⏭</button>
+        </div>
+
+        <div class="volume">
+            <span>🔊</span>
+            <input type="range" min="0" max="1" step="0.01" onchange="setVolume(this.value)">
+        </div>
+
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
