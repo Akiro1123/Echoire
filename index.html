@@ -3,20 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Aesthetic Music Player</title>
+    <title>Echoire</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Header -->
     <header>
         <div class="logo">
             <div class="icon">♪</div>
-            <h1>Music Player</h1>
+            <h1>Echoire</h1>
         </div>
+
         <div class="search">
-            <input type="text" placeholder="Search (UI only)">
-            <div class="profile"></div>
+            <input type="text" placeholder="Search your favorite tunes">
+
+            <div class="profile-wrapper">
+                <div id="profileBtn" class="profile-circle">
+                    <span id="profileInitial">J</span>
+                </div>
+
+                <div id="profileMenu" class="profile-menu">
+                    <button class="menu-item">Profile</button>
+                    <button class="menu-item">Settings</button>
+                    <button id="uploadNav" class="menu-item">Upload</button>
+                    <button class="menu-item">Subscription</button>
+
+                    <hr>
+
+                    <button class="menu-item">About</button>
+                    <button class="menu-item logout">Log Out</button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -42,40 +61,63 @@
 
         <!-- Main Content -->
         <main>
-            <h2>Recently Played</h2>
 
-            <!-- SONGS LOADED HERE BY JS -->
-            <div class="song-grid" id="songGrid"></div>
+            <!-- Recently Played -->
+            <section class="recent-section">
+                <h4>Recently Played</h4>
+                <div id="recentGrid" class="song-grid"></div>
+            </section>
+
+            <!-- All Songs (Loaded by JS) -->
+            <section>
+                <h4>Browse Songs</h4>
+                <div id="songGrid" class="song-grid"></div>
+            </section>
+
+
         </main>
 
     </div>
 
-    <!-- Bottom Player Bar -->
-    <footer>
+    <!-- Bottom Player -->
+    <footer class="player-bar">
 
-        <div class="now-playing">
-            <img id="nowPlayingImg" src="https://via.placeholder.com/50x50/333/fff?text=Now" alt="Current Song">
-            <div>
-                <h4 id="nowPlayingTitle">Not Playing</h4>
-                <p id="nowPlayingArtist">---</p>
+        <!-- Left -->
+        <div class="player-left">
+            <img id="trackCover" src="" class="cover" alt="Cover">
+            <div class="track-info">
+                <p id="track-title">Not Playing</p>
+                <p id="artist-name"></p>
             </div>
         </div>
 
-        <div class="controls">
-            <button onclick="previous()">⏮</button>
-            <button onclick="play()">▶</button>
-            <button onclick="pause()">⏸</button>
-            <button onclick="next()">⏭</button>
+        <!-- Center -->
+        <div class="player-center">
+
+            <div class="controls">
+                <button id="prevBtn" class="icon-btn">PREV</button>
+                <button id="playBtn" class="icon-btn">▶</button>
+                <button id="nextBtn" class="icon-btn">NEXT</button>
+            </div>
+
+            <div class="progress">
+                <span id="currentTime">0:00</span>
+                <input type="range" id="progressBar" value="0" min="0" max="100">
+                <span id="duration">0:00</span>
+            </div>
+
         </div>
 
-        <div class="volume">
-            <span>🔊</span>
-            <input type="range" min="0" max="1" step="0.01" onchange="setVolume(this.value)">
+        <!-- Right -->
+        <div class="player-right">
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+            <button class="more">⋮</button>
         </div>
 
+        <audio id="audioPlayer"></audio>
     </footer>
 
-    <!-- SCRIPT -->
+    <!-- Script -->
     <script src="script.js"></script>
 
 </body>

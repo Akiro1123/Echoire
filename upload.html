@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Track • Echoire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER (same design as index.html) -->
+  <header>
+    <div class="logo">
+      <div class="icon">♪</div>
+      <h1>Echoire</h1>
+    </div>
+
+    <div class="search">
+      <input type="text" placeholder="Search your favorite tunes">
+
+      <div class="profile-wrapper">
+        <div class="profile-circle">
+          <span>J</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="upload-container">
+
+    <div class="upload-header">
+      <h2 class="upload-title">Upload Your Track</h2>
+      <p class="upload-subtitle">Share your sound with the world</p>
+    </div>
+
+    <form id="uploadForm">
+
+      <div class="upload-grid">
+
+        <!-- LEFT SIDE -->
+        <div class="upload-card">
+
+          <div class="drop-zone" id="dropZone">
+            <p>Drag & Drop Audio</p>
+            <p class="upload-subtitle">MP3, WAV, FLAC</p>
+            <button type="button" class="publish-btn" onclick="document.getElementById('songFile').click()">
+              Browse Files
+            </button>
+            <input type="file" id="songFile" accept="audio/*" hidden required>
+          </div>
+
+          <input type="text" id="songTitle" placeholder="Track Title" required>
+          <input type="text" id="songArtist" placeholder="Artist Name" required>
+          <input type="text" placeholder="Album (Optional)">
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="upload-card">
+
+          <input type="text" placeholder="Genre (e.g. Hip-hop)">
+          <input type="text" placeholder="Mood (e.g. Chill, Energetic)">
+          <textarea placeholder="Description"></textarea>
+          <input type="text" placeholder="Tags (comma separated)">
+
+          <label style="margin-top:10px; display:flex; gap:10px; align-items:center;">
+            <input type="checkbox">
+            Make Track Public
+          </label>
+
+          <label style="display:flex; gap:10px; align-items:center;">
+            <input type="checkbox">
+            Allow Downloads
+          </label>
+
+        </div>
+
+      </div>
+
+      <button type="submit" class="publish-btn">Publish Track</button>
+      <p id="uploadStatus"></p>
+
+    </form>
+
+  </main>
+
+  <!-- SCRIPT -->
+  <script src="upload.js"></script>
+
+</body>
+</html>
